@@ -15,6 +15,8 @@ volume — rootless and podman-native, no Docker. Details live in README.md and
 
 Trunk-based development:
 
-- The default branch is `trunk`; all work lands on `trunk` in small commits.
-- Short-lived branches only when a change needs review; merge back immediately.
-- Releases are tags on `trunk`; no long-lived branches.
+- The default branch is `trunk`; all work lands on `trunk`.
+- While scaffolding is underway, small changes commit directly to `trunk`.
+- Once scaffolding is done, always use short-lived branches: create a branch,
+  merge it back into `trunk` right away, delete it.
+- No long-lived or release branches; releases are tags on `trunk`.
