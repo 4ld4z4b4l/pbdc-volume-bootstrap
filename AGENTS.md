@@ -6,9 +6,8 @@ That conformance is this file's first and foremost rule.
 
 ## Agent files
 
-Only standardized AI files may be used in this repository (`AGENTS.md`).
-Do not add non-standardized files (`CONTEXT.md`, `CLAUDE.md`, `MEMORY.md`,
-`SKILLS.md`) until they are standardized.
+Only standardized AI files may be used in this repository (`AGENTS.md`,
+`SKILLS.md`). Do not introduce non-standardized agent files.
 
 ## Project overview
 
