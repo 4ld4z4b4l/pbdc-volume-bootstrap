@@ -4,8 +4,8 @@
 
 ```mermaid
 flowchart TD
-    U(["dc-podman-volume-bootstrap git-url"]) --> W["host wrapper"]
-    W --> Q{"volume 'dc-podman-volume-bootstrap-proj'<br/>exists?"}
+    U(["pbdc-volume-bootstrap git-url"]) --> W["host wrapper"]
+    W --> Q{"volume 'pbdc-volume-bootstrap-proj'<br/>exists?"}
     Q -- "no" --> VC["podman volume create"]
     VC --> R
     Q -- "yes" --> R
@@ -33,9 +33,10 @@ flowchart TD
 
 | Component | Detail |
 | --- | --- |
-| Host wrapper | `~/.local/bin/dc-podman-volume-bootstrap` — derives the volume name from the repo name, creates it if needed, and runs the ephemeral bootstrap container. |
-| Bootstrap image | `localhost/dc-podman-volume-bootstrap:fedora`, built from `fedora-minimal:latest` with `nodejs`, `npm`, `git`, `podman`, and `@devcontainers/cli`. Never persists; `--rm`. |
-| Entrypoint | `dc-podman-volume-bootstrap.sh` — socket binding, clone/pull, config injection, `devcontainer up`. |
+| Host wrapper | `~/.local/bin/pbdc-volume-bootstrap` — derives the volume name from the repo name, creates it if needed, and runs the ephemeral bootstrap container. |
+| Bootstrap output image | `localhost/pbdc-volume-bootstrap:fedora`, built from `fedora-minimal:latest` with `nodejs`, `npm`, `git`, `podman`, and `@devcontainers/cli`. Never persists; `--rm`. |
+| Entrypoint | `src/bootstrap.ts` (TypeScript) compiled to a single `dist/bootstrap.mjs`, baked into the output image — socket binding, clone/pull, JSONC config injection, `devcontainer up`, container/image naming. |
+| Toolchain dev container | `.devcontainer/` — a separate, rpm-based image (`fedora-minimal`) with node 22, npm, podman, and uv; used to compile, build the output image, run the e2e test, and generate the docs. Podman talks to the host via the mounted `POOP_SOCKET` / `CONTAINER_HOST`, or builds nested when no socket is present. |
 | Workspace | Persistent named podman volume — survives across runs; re-run does `git pull`. |
 | Network | `devnet` — both the bootstrap and the dev container join so they can discover each other by name. |
 

@@ -1,6 +1,6 @@
-site_name: dc-podman-volume-bootstrap
+site_name: pbdc-volume-bootstrap
 site_description: OSS, rootless-podman equivalent of "Clone Repository in Container Volume" for dev containers
-repo_url: https://github.com/4ld4z4b4l/dc-podman-volume-bootstrap
+repo_url: https://github.com/4ld4z4b4l/pbdc-volume-bootstrap
 docs_dir: docs
 
 theme:

@@ -37,7 +37,7 @@ sequenceDiagram
     participant B as bootstrap container
     participant V as named volume
     participant D as dev container (devnet)
-    U->>W: dc-podman-volume-bootstrap &lt;git-url&gt;
+    U->>W: pbdc-volume-bootstrap &lt;git-url&gt;
     W->>V: podman volume create (if missing)
     W->>B: podman run --rm --network devnet + user socket
     B->>B: bind socket -> DOCKER_HOST

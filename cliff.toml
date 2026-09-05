@@ -11,7 +11,7 @@ body = """
 ### {{ group | upper_first }}
 {% for commit in commits %}
 - {{ commit.message | upper_first }}
-{%- if commit.breaking %} (breaking) {% endif %} [\`{{ commit.id | truncate(7) }}\`](https://github.com/4ld4z4b4l/dc-podman-volume-bootstrap/commit/{{ commit.id }})
+{%- if commit.breaking %} (breaking) {% endif %} [\`{{ commit.id | truncate(7) }}\`](https://github.com/4ld4z4b4l/pbdc-volume-bootstrap/commit/{{ commit.id }})
 {%- endfor %}
 {% endfor %}
 """

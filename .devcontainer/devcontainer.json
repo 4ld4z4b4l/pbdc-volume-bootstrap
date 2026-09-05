@@ -1,0 +1,13 @@
+{
+  "name": "pbdc-volume-bootstrap toolchain",
+  "build": {
+    "dockerfile": "Containerfile"
+  },
+  "runArgs": ["--network=devnet"],
+  "postCreateCommand": "npm ci",
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "ms-python.python"]
+    }
+  }
+}

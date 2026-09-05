@@ -1,0 +1,21 @@
+{
+  "name": "pbdc-volume-bootstrap",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "esbuild src/bootstrap.ts --bundle --platform=node --format=esm --target=node22 --outfile=dist/bootstrap.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "./scripts/e2e.sh",
+    "docs": "uv run mkdocs build",
+    "docs:serve": "uv run mkdocs serve"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.6.3"
+  }
+}

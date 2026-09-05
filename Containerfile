@@ -5,10 +5,8 @@ RUN microdnf install -y nodejs npm git podman tar gzip ca-certificates bash \
     && microdnf clean all \
     && npm install -g @devcontainers/cli
 
-COPY dc-podman-volume-bootstrap.sh /usr/local/bin/dc-podman-volume-bootstrap.sh
-RUN chmod +x /usr/local/bin/dc-podman-volume-bootstrap.sh \
-    && mkdir -p /workspace
+COPY dist/bootstrap.mjs /usr/local/bin/pbdc-volume-bootstrap.mjs
 
 ENV DEV_WORKSPACE=/workspace
 WORKDIR /workspace
-ENTRYPOINT ["/usr/local/bin/dc-podman-volume-bootstrap.sh"]
+ENTRYPOINT ["node", "/usr/local/bin/pbdc-volume-bootstrap.mjs"]

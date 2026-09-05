@@ -1,0 +1,7 @@
+# pbdc-volume-bootstrap toolchain dev container — basic rpm-based image, no features.
+FROM registry.fedoraproject.org/fedora-minimal:latest
+
+RUN microdnf install -y nodejs npm git podman tar gzip ca-certificates uv fuse-overlayfs \
+    && microdnf clean all
+
+COPY scripts/toolchain-env.sh /etc/profile.d/pbdc-volume-bootstrap-env.sh
