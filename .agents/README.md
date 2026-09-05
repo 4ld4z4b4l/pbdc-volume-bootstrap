@@ -11,6 +11,6 @@ standard**. The layout below may change if a standard is standardized.
 | Path | Purpose |
 | --- | --- |
 | `README.md` | This file: documents the convention. |
-| `skills/` | Agent Skills (`SKILL.md` format) kept out of the repo root. |
+| `skills/<skill-name>/SKILL.md` | One folder per skill; the `SKILL.md` (Agent Skills format) lives inside it. |
 
 Standardized agent files stay at the repo root: `AGENTS.md`, `SKILL.md`.
