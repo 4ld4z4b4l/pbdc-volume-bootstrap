@@ -24,6 +24,15 @@ Operational guidance for AI agents working in this repository. README.md and
   strictly out of the repository.
 - Do not commit non-standard AI configuration (see the `.gitignore` section).
 
+## Workflow (trunk-based development)
+
+- The default branch is `trunk`; all work lands on `trunk`.
+- Small changes commit directly to `trunk`. Use short-lived branches (e.g.
+  `feat/some-idea`, `docs/fix`) only when a change wants review, and merge them
+  back into `trunk` right away.
+- No long-lived or release branches. Release by tagging `trunk`
+  (e.g. `git tag v0.1.0 && git push origin trunk v0.1.0`).
+
 ## Build
 
 ```console

@@ -1,15 +1,14 @@
 #syntax=docker/dockerfile:1
-FROM docker.io/library/node:22-bookworm-slim
+FROM registry.fedoraproject.org/fedora-minimal:latest
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends podman podman-docker git ca-certificates curl \
-    && rm -rf /var/lib/apt/lists/* \
+RUN microdnf install -y nodejs npm git podman tar gzip ca-certificates bash \
+    && microdnf clean all \
     && npm install -g @devcontainers/cli
 
-COPY entrypoint.sh /usr/local/bin/devctl.sh
-RUN chmod +x /usr/local/bin/devctl.sh \
+COPY dc-podman-volume-bootstrap.sh /usr/local/bin/dc-podman-volume-bootstrap.sh
+RUN chmod +x /usr/local/bin/dc-podman-volume-bootstrap.sh \
     && mkdir -p /workspace
 
 ENV DEV_WORKSPACE=/workspace
 WORKDIR /workspace
-ENTRYPOINT ["/usr/local/bin/devctl.sh"]
+ENTRYPOINT ["/usr/local/bin/dc-podman-volume-bootstrap.sh"]
