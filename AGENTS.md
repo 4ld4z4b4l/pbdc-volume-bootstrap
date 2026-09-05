@@ -1,29 +1,7 @@
 # AGENTS.md
 
-Guidance for AI agents and human contributors working in this repository.
-
-## Project
-
-`dc-podman-volume-bootstrap` is a 100% OSS, rootless-podman implementation of
-Microsoft's "Clone Repository in Container Volume" devcontainer flow. A public
-git URL is cloned into a persistent named podman volume; the dev container's
-workspace lives entirely inside that volume and is launched via the MIT
-`@devcontainers/cli` against the host's rootless podman socket.
-
-## Layout
-
-| Path | Purpose |
-| --- | --- |
-| `Containerfile` | `fedora-minimal` bootstrap image (nodejs, npm, git, podman, `@devcontainers/cli`). |
-| `dc-podman-volume-bootstrap.sh` | Image entrypoint: socket bind, clone/pull, config injection, `devcontainer up`. |
-| `docs/` | MkDocs site (index, architecture, usage, background). |
-| `catalog-info.yaml` | Backstage catalog entity. |
-| `README.md` | Objectives + quick start. |
-
-Host-side artifacts (not in this repo): wrapper
-`~/.local/bin/dc-podman-volume-bootstrap`, image
-`localhost/dc-podman-volume-bootstrap:fedora`, volumes
-`dc-podman-volume-bootstrap-<proj>`.
+Operational guidance for AI agents working in this repository. README.md and
+`docs/` are for humans; the plan/roadmap lives outside this repo.
 
 ## Conventions
 
@@ -33,8 +11,8 @@ Host-side artifacts (not in this repo): wrapper
   (`sh`, POSIX-safe, `set -e`).
 - Keep the "clone in a volume, not a bind mount" invariant — never reintroduce
   host-path bind mounts.
-- Reference the containers.dev spec naming; do not use the `devcontainers`
-  tradename in project naming.
+- Reference the containers.dev spec naming (`dc-` prefix); do not use the
+  `devcontainers` tradename in project naming.
 
 ## Git / identity
 
