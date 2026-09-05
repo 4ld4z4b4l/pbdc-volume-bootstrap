@@ -66,7 +66,10 @@ See [Usage](docs/usage.md) and [Architecture](docs/architecture.md).
 
 ## Status
 
-Experimental. Works against rootless podman 6.x on CachyOS; see
+`v0.1.0` — still scaffolding. The end-to-end flow works against rootless
+podman 6.x on CachyOS (clone in a volume, rootless dev container on `devnet`,
+JSONC config injection), but do not depend on this yet: APIs and layout are
+subject to change until `v1.0.0`. See
 [docs/background.md](docs/background.md) for the documented quirks.
 
 ## Repository layout

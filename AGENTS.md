@@ -33,6 +33,13 @@ Operational guidance for AI agents working in this repository. README.md and
 - No long-lived or release branches. Release by tagging `trunk`
   (e.g. `git tag v0.1.0 && git push origin trunk v0.1.0`).
 
+## Releases / changelog
+
+- Changelog is generated with [git-cliff](https://github.com/orhun/git-cliff)
+  from conventional commit messages (`cliff.toml`).
+- Before tagging a release, run `git-cliff -o CHANGELOG.md` and commit the
+  regenerated file, then `git tag vX.Y.Z && git push origin trunk vX.Y.Z`.
+
 ## Build
 
 ```console
