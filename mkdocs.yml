@@ -1,0 +1,19 @@
+site_name: dc-podman-volume-bootstrap
+site_description: OSS, rootless-podman equivalent of "Clone Repository in Container Volume" for dev containers
+repo_url: https://github.com/4ld4z4b4l/dc-podman-volume-bootstrap
+docs_dir: docs
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+  features:
+    - navigation.instant
+
+copyright: Copyright &copy; 2026 Aitor Aldazabal — BSD-3-Clause
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Usage: usage.md
+  - Background: background.md

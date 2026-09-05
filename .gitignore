@@ -1,0 +1,36 @@
+# --- Standard ---------------------------------------------------------------
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.*
+*.pyc
+__pycache__/
+coverage/
+*.orig
+*.rej
+.DS_Store
+
+# MkDocs output
+site/
+
+# --- Non-standard AI tool configuration -------------------------------------
+# AGENTS.md and .devcontainer/ are intentionally tracked (de-facto standards).
+# Everything here is tool-specific, machine-local, or non-standard convention,
+# so it must never be committed.
+.opencode/
+opencode.json
+opencode.jsonc
+.cursor/
+.cursorrules
+.claude/
+.aider/
+.aider*
+.continue/
+.codeium/
+.windsurf/
+.gemini/
+.roo/
+bolt/
+*.session
