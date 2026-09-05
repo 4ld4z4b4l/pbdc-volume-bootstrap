@@ -6,8 +6,10 @@ That conformance is this file's first and foremost rule.
 
 ## Agent files
 
-Only standardized AI files may be used in this repository (`AGENTS.md`,
-`SKILLS.md`). Do not introduce non-standardized agent files.
+- Standardized formats stay at the repo root: `AGENTS.md`, `SKILL.md`.
+- Non-standardized agent files go in `.agents/`, an adopted convention with
+  no ratified standard yet (see `.agents/README.md`). Review only if a
+  standard is standardized.
 
 ## Project overview
 
