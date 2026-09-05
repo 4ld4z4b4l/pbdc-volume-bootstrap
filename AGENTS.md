@@ -16,7 +16,8 @@ volume — rootless and podman-native, no Docker. Details live in README.md and
 Trunk-based development:
 
 - The default branch is `trunk`; all work lands on `trunk`.
-- While scaffolding is underway, small changes commit directly to `trunk`.
+- Scaffolding is not yet done for any project in the pbdc family, so small
+  changes commit directly to `trunk` for now.
 - Once scaffolding is done, always use short-lived branches: create a branch,
   merge it back into `trunk` right away, delete it.
 - No long-lived or release branches; releases are tags on `trunk`.
