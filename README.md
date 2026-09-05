@@ -62,7 +62,7 @@ Under the hood:
      -e GIT_URL=... -e PROJECT_NAME=... -e WORKSPACE_VOLUME=... -e NETWORK=devnet \
      localhost/dc-podman-volume-bootstrap:fedora`
 
-See [Usage](docs/usage.md) and [Architecture](docs/architecture.md).
+See [Usage](docs/usage/README.en.md) and [Architecture](docs/architecture/README.en.md).
 
 ## Status
 
@@ -70,7 +70,8 @@ See [Usage](docs/usage.md) and [Architecture](docs/architecture.md).
 podman 6.x on CachyOS (clone in a volume, rootless dev container on `devnet`,
 JSONC config injection), but do not depend on this yet: APIs and layout are
 subject to change until `v1.0.0`. See
-[docs/background.md](docs/background.md) for the documented quirks.
+[docs/background/README.en.md](docs/background/README.en.md) for the
+documented quirks.
 
 ## Repository layout
 

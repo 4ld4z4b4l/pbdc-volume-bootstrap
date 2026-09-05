@@ -9,11 +9,21 @@ theme:
     scheme: slate
   features:
     - navigation.instant
+  language: en
+
+plugins:
+  - search
+  - i18n:
+      docs_structure: suffix
+      languages:
+        - locale: en
+          default: true
+          name: English
 
 copyright: Copyright &copy; 2026 Aitor Aldazabal — BSD-3-Clause
 
 nav:
   - Home: index.md
-  - Architecture: architecture.md
-  - Usage: usage.md
-  - Background: background.md
+  - Usage: usage/README.md
+  - Architecture: architecture/README.md
+  - Background: background/README.md

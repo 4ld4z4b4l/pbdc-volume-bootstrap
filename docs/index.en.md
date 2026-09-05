@@ -28,6 +28,7 @@ VS Code.
 
 The devcontainer tooling refuses a repo that lives in a named volume unless
 `workspaceMount` is injected explicitly. This project automates that, and
-documents it in the open — see [Background](background.md).
+documents it in the open — see [Background](background/README.md).
 
-Continue with [Architecture](architecture.md) or [Usage](usage.md).
+Continue with [Architecture](architecture/README.md) or
+[Usage](usage/README.md).
