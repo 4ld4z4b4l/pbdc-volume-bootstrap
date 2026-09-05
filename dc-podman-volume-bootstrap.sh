@@ -76,7 +76,37 @@ CFG="$CFG_DIR/devcontainer.json"
 
 NODE_DC="$DC" NODE_VOL="$VOL" NODE_PROJ="$PROJ" NODE_NETWORK="$NETWORK" NODE_OUT="$CFG" node -e '
   const fs = require("fs");
-  const src = JSON.parse(fs.readFileSync(process.env.NODE_DC, "utf8"));
+  const raw = fs.readFileSync(process.env.NODE_DC, "utf8");
+  let cur = "", inStr = false, esc = false;
+  for (let i = 0; i < raw.length; i++) {
+    const c = raw.charAt(i), n = raw.charAt(i + 1);
+    if (inStr) {
+      cur += c;
+      if (esc) esc = false;
+      else if (c === "\\") esc = true;
+      else if (c === "\"") inStr = false;
+      continue;
+    }
+    if (c === "\"") { inStr = true; cur += c; continue; }
+    if (c === "/" && n === "/") { i += 2; while (i < raw.length && raw.charAt(i) !== "\n") i++; cur += "\n"; continue; }
+    if (c === "/" && n === "*") { i += 2; while (i < raw.length && !(raw.charAt(i) === "*" && raw.charAt(i + 1) === "/")) i++; i++; continue; }
+    cur += c;
+  }
+  let out = "", inStr2 = false, esc2 = false;
+  for (let i = 0; i < cur.length; i++) {
+    const c = cur.charAt(i);
+    if (inStr2) {
+      out += c;
+      if (esc2) esc2 = false;
+      else if (c === "\\") esc2 = true;
+      else if (c === "\"") inStr2 = false;
+      continue;
+    }
+    if (c === "\"") { inStr2 = true; out += c; continue; }
+    if (c === ",") { let j = i + 1; while (j < cur.length && /\s/.test(cur.charAt(j))) j++; if (cur.charAt(j) === "}" || cur.charAt(j) === "]") continue; }
+    out += c;
+  }
+  const src = JSON.parse(out);
   src.workspaceMount = "type=volume,source=" + process.env.NODE_VOL + ",target=/workspace";
   src.workspaceFolder = "/workspace/" + process.env.NODE_PROJ;
   const ra = Array.isArray(src.runArgs) ? src.runArgs : [];
